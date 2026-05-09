@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OnlineSports.com - Amazon Affiliate Tools</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #e47911; color: white; padding: 20px 30px; }
+    header h1 { font-size: 22px; }
+    header p { font-size: 13px; opacity: 0.85; margin-top: 3px; }
+    .badge { background: rgba(255,255,255,0.2); border-radius: 12px; padding: 3px 10px; font-size: 12px; }
+    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+    .section-title { font-size: 18px; font-weight: 700; margin: 30px 0 12px; border-left: 4px solid #e47911; padding-left: 12px; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 10px; overflow: hidden; }
+    .card-header { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+    .card-header:hover { background: #fafafa; }
+    .card-title { font-weight: 600; font-size: 15px; }
+    .card-meta { font-size: 12px; color: #888; margin-top: 2px; }
+    .status { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; text-transform: uppercase; white-space: nowrap; }
+    .status.done { background: #d4edda; color: #155724; }
+    .status.pending { background: #fff3cd; color: #856404; }
+    .card-body { display: none; padding: 16px 18px; border-top: 1px solid #f0f0f0; background: #fafafa; }
+    .card-body.open { display: block; }
+    .html-block { background: #1e1e1e; color: #d4d4d4; padding: 14px; border-radius: 6px; font-size: 11px; font-family: monospace; white-space: pre-wrap; word-break: break-all; margin-top: 10px; position: relative; padding-top: 36px; }
+    .copy-btn { position: absolute; top: 8px; right: 8px; background: #e47911; color: white; border: none; border-radius: 4px; padding: 4px 10px; font-size: 11px; cursor: pointer; }
+    .copy-btn.copied { background: #28a745; }
+    label { font-size: 12px; font-weight: 600; color: #555; display: block; margin-bottom: 4px; margin-top: 10px; }
+    .amazon-url { background: #fff8e7; border: 1px solid #e47911; border-radius: 4px; padding: 8px 12px; font-size: 12px; font-family: monospace; word-break: break-all; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .tab { padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: 2px solid #ddd; background: white; color: #666; }
+    .tab.active { background: #e47911; color: white; border-color: #e47911; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .info-box { background: #e8f4fd; border: 1px solid #b8daff; border-radius: 6px; padding: 14px 18px; font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
+    .tag-highlight { background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 2px 8px; font-family: monospace; font-size: 12px; }
+    .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .stat { background: white; border-radius: 8px; padding: 14px 20px; flex: 1; min-width: 120px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); text-align: center; }
+    .stat .num { font-size: 28px; font-weight: 700; color: #e47911; }
+    .stat .lbl { font-size: 12px; color: #888; margin-top: 2px; }
+    .note { font-size: 12px; color: #888; font-style: italic; margin-top: 6px; }
+    .url-link { color: #0066cc; font-size: 13px; word-break: break-all; }
+    .copy-url-btn { margin-top: 8px; padding: 6px 14px; background: #e47911; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>OnlineSports.com - Amazon Affiliate Tools</h1>
+  <p>Prepared by Sam (OpenClaw AI) - May 2026 <span class="badge">Associates ID: onlinesport0c-20</span></p>
+</header>
+<div class="container">
+  <div class="stats-row">
+    <div class="stat"><div class="num">10</div><div class="lbl">Domain Redirects</div></div>
+    <div class="stat"><div class="num">33</div><div class="lbl">Product Pages</div></div>
+    <div class="stat"><div class="num">~6,500</div><div class="lbl">Monthly Impressions</div></div>
+    <div class="stat"><div class="num">$200-600</div><div class="lbl">Est. Monthly Revenue</div></div>
+  </div>
+  <div class="info-box">
+    <strong>Amazon Associates ID:</strong> <span class="tag-highlight">onlinesport0c-20</span> - must appear in every link for commissions to track.<br>
+    <strong>Status:</strong> Associates account applied via associates@onlinesports.com - confirm approval before going live.<br>
+    <strong>All links use:</strong> <span class="tag-highlight">rel="nofollow sponsored"</span> per Amazon TOS.
+  </div>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('redirects',this)">Domain Redirects</div>
+    <div class="tab" onclick="switchTab('pages',this)">Product Pages</div>
+    <div class="tab" onclick="switchTab('instructions',this)">Instructions</div>
+  </div>
+  <div class="section active" id="tab-redirects">
+    <div class="section-title">Domain to Amazon Redirects (Hover.com)</div>
+    <p style="font-size:13px;color:#666;margin-bottom:16px;">Set up 301 permanent redirects in Hover for each domain. About 30 min total.</p>
+    <div id="redirects-list"></div>
+  </div>
+  <div class="section" id="tab-pages">
+    <div class="section-title">Product Pages - Paste-Ready HTML</div>
+    <p style="font-size:13px;color:#666;margin-bottom:16px;">Click any row to expand and copy the HTML block for Magento.</p>
+    <div id="pages-list"></div>
+  </div>
+  <div class="section" id="tab-instructions">
+    <div class="section-title">How to Set Up Hover Redirects</div>
+    <div class="card"><div class="card-body open" style="display:block;">
+      <ol style="font-size:14px;line-height:2.2;padding-left:20px;">
+        <li>Go to <strong>hover.com</strong> and sign in</li>
+        <li>Click the domain to configure</li>
+        <li>Click the <strong>Forward</strong> tab (or URL Forwarding)</li>
+        <li>Click <strong>Add a Forward</strong></li>
+        <li>Select <strong>Permanent Redirect (301)</strong></li>
+        <li>Paste the Amazon URL from the Domain Redirects tab</li>
+        <li>Save and repeat for all 10 domains</li>
+        <li>Test in browser after setup (DNS takes 1-2 hours)</li>
+      </ol>
+    </div></div>
+    <div class="section-title" style="margin-top:24px;">How to Add HTML to Magento Product Pages</div>
+    <div class="card"><div class="card-body open" style="display:block;">
+      <ol style="font-size:14px;line-height:2.2;padding-left:20px;">
+        <li>Go to the <strong>Product Pages</strong> tab</li>
+        <li>Click a product to expand it</li>
+        <li>Click <strong>Copy HTML</strong></li>
+        <li>In Magento admin, open the product</li>
+        <li>Switch description to <strong>HTML/Source mode</strong></li>
+        <li>Paste above or below existing content - do NOT replace it</li>
+        <li>Save</li>
+      </ol>
+      <p style="margin-top:12px;font-size:13px;color:#666;">Note: Winchester blanks page uses a Walmart link (Amazon does not carry ammo). Triple Stroller is already done - skip it.</p>
+    </div></div>
+  </div>
+</div>
+<script>
+var TAG="onlinesport0c-20";
+var redirects=[["autographedfootballjersey.com","autographed+football+jersey"],["autographedfootballjerseys.com","autographed+football+jerseys"],["autographedfootball.com","autographed+football"],["autographedfootballhelmet.com","autographed+football+helmet"],["autographedfootballhelmets.com","autographed+football+helmets"],["autographedbasketball.com","autographed+basketball"],["autographedbasketballjersey.com","autographed+basketball+jersey"],["autographedbaseball.com","autographed+baseball"],["autographedhockeyjersey.com","autographed+hockey+jersey"],["autographedhelmet.com","autographed+helmet"]];
+var pages=[{url:"https://www.onlinesports.com/summit-xc-series-triple-stroller-from-the-baby-jogger-red-black.html",desc:"Triple Jogging Stroller",kw:"triple+jogging+stroller",done:true,note:"Already live"},{url:"https://www.onlinesports.com/blastball-trade-complete-baseball-teeball-set.html",desc:"Blastball Set",kw:"blastball+set+kids"},{url:"https://www.onlinesports.com/california-chariot-trade-os-blue-scooter-from-marky-sparky.html",desc:"California Chariot Scooter",kw:"california+chariot"},{url:"https://www.onlinesports.com/factor-x-skateboard-launch-ramp-xt.html",desc:"X Factor Bike/Skate Ramp",kw:"skateboard+bike+launch+ramp"},{url:"https://www.onlinesports.com/bag-boy-m-300-two-wheel-pull-golf-cart.html",desc:"Bag Boy M300 Golf Cart",kw:"bag+boy+push+golf+cart"},{url:"https://www.onlinesports.com/goalrilla-5-x-5-all-season-7-position-multi-sport-rebounder-goal.html",desc:"Goalrilla Sport Rebounder",kw:"goalrilla+sport+rebounder"},{url:"https://www.onlinesports.com/solohitter-tournament-3000-portable-batting-system.html",desc:"Solo Hitter Baseball Trainer",kw:"solo+hitter+baseball+batting+trainer"},{url:"https://www.onlinesports.com/pro-tec-pole-vault-helmet-large.html",desc:"Pole Vault Helmet",kw:"pole+vault+helmet"},{url:"https://www.onlinesports.com/kawasaki-reg-kdx226fs-men-s-26-dual-suspension-mountain-bike.html",desc:"Kawasaki 26in Mountain Bike",kw:"mens+26+inch+dual+suspension+mountain+bike"},{url:"https://www.onlinesports.com/practice-pro-1000-gas-pitching-machine.html",desc:"Gas Pitching Machine",kw:"baseball+pitching+machine"},{url:"https://www.onlinesports.com/moye-victory-iii-starting-block.html",desc:"Moye Track Starting Blocks",kw:"track+starting+blocks+sprint"},{url:"https://www.onlinesports.com/tour-de-france-stage-one-yellow-jersey-45cm-16-speed-road-bicycle-yellow-white.html",desc:"Tour de France Road Bike",kw:"road+bike+adult+multi+speed"},{url:"https://www.onlinesports.com/winchester-32-caliber-blanks-ammo-50-per-box-for-use-with-starter-revolvers-starter-pistols.html",desc:"Winchester Starter Blanks",walmart:true},{url:"https://www.onlinesports.com/tuf-foot-reg-liquid-skin-toughener-8-oz.html",desc:"Tuf-Foot Skin Toughener",kw:"tuf+foot+skin+toughener"},{url:"https://www.onlinesports.com/wilson-nano-carbon-force-squash-racquet.html",desc:"Wilson Squash Racquet",kw:"wilson+squash+racquet"},{url:"https://www.onlinesports.com/wilson-roger-federer-27-signature-titanium-tennis-racket.html",desc:"Wilson Federer Tennis Racket",kw:"wilson+tennis+racket"},{url:"https://www.onlinesports.com/tapout-174-mma-70-lb-heavy-bag-and-gloves-combination-set.html",desc:"Tapout MMA Heavy Bag Set",kw:"mma+heavy+bag+gloves+combo+set"},{url:"https://www.onlinesports.com/50k-110-lb-powermax-kettlebell.html",desc:"110lb Kettlebell",kw:"heavy+kettlebell+100+lb"},{url:"https://www.onlinesports.com/b-450-steel-head-shaft-badminton-racquet-from-yonex-set-of-3.html",desc:"Yonex Badminton Racquet Set",kw:"yonex+badminton+racquet+set"},{url:"https://www.onlinesports.com/atec-baseball-feeder-for-the-power-streak-pitching-machine.html",desc:"Atec Pitching Machine Feeder",kw:"baseball+pitching+machine+automatic+feeder"},{url:"https://www.onlinesports.com/notre-dame-mailbox.html",desc:"Notre Dame Mailbox",kw:"notre+dame+mailbox"},{url:"https://www.onlinesports.com/buffalo-bills-mailbox.html",desc:"Buffalo Bills Mailbox",kw:"buffalo+bills+mailbox"},{url:"https://www.onlinesports.com/chicago-bears-mailbox.html",desc:"Chicago Bears Mailbox",kw:"chicago+bears+mailbox"},{url:"https://www.onlinesports.com/detroit-lions-mailbox.html",desc:"Detroit Lions Mailbox",kw:"detroit+lions+mailbox"},{url:"https://www.onlinesports.com/green-bay-packers-mailbox.html",desc:"Green Bay Packers Mailbox",kw:"green+bay+packers+mailbox"},{url:"https://www.onlinesports.com/miami-dolphins-mailbox.html",desc:"Miami Dolphins Mailbox",kw:"miami+dolphins+mailbox"},{url:"https://www.onlinesports.com/pittsburgh-steelers-mailbox.html",desc:"Pittsburgh Steelers Mailbox",kw:"pittsburgh+steelers+mailbox"},{url:"https://www.onlinesports.com/dallas-cowboys-mailbox.html",desc:"Dallas Cowboys Mailbox",kw:"dallas+cowboys+mailbox"},{url:"https://www.onlinesports.com/philadelphia-eagles-mailbox.html",desc:"Philadelphia Eagles Mailbox",kw:"philadelphia+eagles+mailbox"},{url:"https://www.onlinesports.com/new-england-patriots-mailbox.html",desc:"New England Patriots Mailbox",kw:"new+england+patriots+mailbox"},{url:"https://www.onlinesports.com/ohio-state-mailbox.html",desc:"Ohio State Mailbox",kw:"ohio+state+buckeyes+mailbox"},{url:"https://www.onlinesports.com/michigan-wolverines-mailbox.html",desc:"Michigan Wolverines Mailbox",kw:"michigan+wolverines+mailbox"},{url:"https://www.onlinesports.com/georgia-bulldogs-mailbox.html",desc:"Georgia Bulldogs Mailbox",kw:"georgia+bulldogs+mailbox"}];
+function amzUrl(kw){return"https://www.amazon.com/s?k="+kw+"&tag="+TAG;}
+function makeBlock(p){if(p.walmart){return'<div style="margin:25px 0;padding:20px;background:#fff8e7;border:3px solid #0071ce;border-radius:8px;text-align:center;"><p style="font-size:18px;font-weight:bold;color:#333;margin:0 0 8px 0;">Shop Starter Pistol Blanks on Walmart</p><p style="font-size:13px;color:#666;margin:0 0 14px 0;">Walmart has .32 caliber starter blanks in stock.</p><a href="https://www.walmart.com/search?q=32+caliber+starter+blanks" target="_blank" rel="nofollow" style="background:#0071ce;color:#fff;padding:14px 32px;border-radius:6px;font-weight:bold;font-size:18px;text-decoration:none;display:inline-block;">Shop on Walmart</a></div>';}return'<div style="margin:25px 0;padding:20px;background:#fff8e7;border:3px solid #e47911;border-radius:8px;text-align:center;"><p style="font-size:18px;font-weight:bold;color:#333;margin:0 0 8px 0;">Shop '+p.desc+' on Amazon</p><p style="font-size:13px;color:#666;margin:0 0 14px 0;">Amazon has a great selection with fast shipping.</p><a href="'+amzUrl(p.kw)+'" target="_blank" rel="nofollow sponsored" style="background:#e47911;color:#fff;padding:14px 32px;border-radius:6px;font-weight:bold;font-size:18px;text-decoration:none;display:inline-block;">Shop on Amazon</a><p style="font-size:11px;color:#aaa;margin:10px 0 0 0;">Free shipping on many items</p></div>';}
+var rl=document.getElementById('redirects-list');
+for(var i=0;i<redirects.length;i++){var r=redirects[i];var u=amzUrl(r[1]);rl.innerHTML+='<div class="card"><div class="card-header" onclick="toggle(\'r'+i+'\')"><div><div class="card-title">'+r[0]+'</div><div class="card-meta">'+u+'</div></div><span class="status pending">Pending</span></div><div class="card-body" id="r'+i+'"><label>Paste this URL into Hover URL Forwarding:</label><div class="amazon-url" id="ru'+i+'">'+u+'</div><button class="copy-url-btn" onclick="copyEl(\'ru'+i+'\',this,\'Copy URL\')">Copy URL</button></div></div>';}
+var pl=document.getElementById('pages-list');
+for(var i=0;i<pages.length;i++){var p=pages[i];var b=makeBlock(p);var e=b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');var sc=p.done?'done':'pending';var sl=p.done?'Done':'Pending';pl.innerHTML+='<div class="card"><div class="card-header" onclick="toggle(\'p'+i+'\')"><div><div class="card-title">'+p.desc+(p.walmart?' [Walmart]':'')+'</div><div class="card-meta">'+p.url.replace('https://www.onlinesports.com','').substring(0,65)+'</div></div><span class="status '+sc+'">'+sl+'</span></div><div class="card-body" id="p'+i+'"><label>Page URL:</label><div class="amazon-url"><a href="'+p.url+'" target="_blank" class="url-link">'+p.url+'</a></div>'+(p.kw?'<label>Amazon Search URL:</label><div class="amazon-url">'+amzUrl(p.kw)+'</div>':'')+'<label>HTML to paste into Magento:</label><div class="html-block" id="hb'+i+'"><button class="copy-btn" onclick="copyBlock('+i+',this)">Copy HTML</button>'+e+'</div>'+(p.note?'<p class="note">'+p.note+'</p>':'')+'</div></div>';}
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+function switchTab(n,btn){document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active');});document.getElementById('tab-'+n).classList.add('active');btn.classList.add('active');}
+function copyBlock(i,btn){navigator.clipboard.writeText(makeBlock(pages[i])).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy HTML';btn.classList.remove('copied');},2000);});}
+function copyEl(id,btn,label){navigator.clipboard.writeText(document.getElementById(id).textContent).then(function(){btn.textContent='Copied!';setTimeout(function(){btn.textContent=label;},2000);});}
+</script>
+</body>
+</html>
