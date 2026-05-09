@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlineSports.com — Project Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 20px 24px; }
+  .header h1 { font-size: 24px; font-weight: 700; }
+  .header p { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+  .section { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .badge-done { background: #d4edda; color: #155724; }
+  .badge-progress { background: #fff3cd; color: #856404; }
+  .badge-blocked { background: #f8d7da; color: #721c24; }
+  .badge-todo { background: #e2e3e5; color: #383d41; }
+  .task-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+  .task-row:last-child { border-bottom: none; }
+  .task-owner { font-size: 11px; font-weight: 700; color: #888; min-width: 42px; margin-top: 3px; }
+  .task-text { flex: 1; font-size: 14px; line-height: 1.5; }
+  .task-text strong { color: #1a1a2e; }
+  .task-text .note { font-size: 12px; color: #888; margin-top: 2px; }
+  .affiliate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .affiliate-card { border: 1px solid #eee; border-radius: 8px; padding: 14px; }
+  .affiliate-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .affiliate-card .status { font-size: 13px; color: #555; }
+  .code-block { background: #1a1a2e; color: #a8ff78; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 13px; line-height: 1.6; overflow-x: auto; white-space: pre; margin: 10px 0; }
+  .copy-btn { background: #e47911; color: white; border: none; padding: 6px 14px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-top: 6px; }
+  .copy-btn:hover { background: #c96a00; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
+  .tab { padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; background: #f0f2f5; color: #555; border: none; }
+  .tab.active { background: #1a1a2e; color: white; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .priority-high { border-left: 3px solid #e47911; padding-left: 10px; }
+  .priority-urgent { border-left: 3px solid #cc0000; padding-left: 10px; }
+  @media (max-width: 600px) { .affiliate-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚙️ OnlineSports.com — Project Dashboard</h1>
+  <p>Game On Sports, Inc. &nbsp;|&nbsp; Sam's Command Center &nbsp;|&nbsp; Updated May 8, 2026</p>
+</div>
+
+<div class="container">
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('tasks')">📋 Tasks</button>
+    <button class="tab" onclick="showTab('affiliates')">💰 Affiliates</button>
+    <button class="tab" onclick="showTab('forchris')">🔧 For Chris</button>
+    <button class="tab" onclick="showTab('progress')">📈 Progress</button>
+  </div>
+
+  <!-- TASKS TAB -->
+  <div id="tab-tasks" class="tab-content active">
+
+    <div class="section">
+      <h2>🔴 Urgent — Mike</h2>
+      <div class="task-row priority-urgent">
+        <div class="task-owner">MIKE</div>
+        <div class="task-text">
+          <strong>Retry BetMGM affiliate application</strong>
+          <div class="note">Use Firefox or Chrome Incognito. URL: partners.betmgm.com</div>
+        </div>
+        <span class="badge badge-blocked">Blocked</span>
+      </div>
+      <div class="task-row priority-urgent">
+        <div class="task-owner">MIKE</div>
+        <div class="task-text">
+          <strong>Retry Caesars affiliate application — early morning</strong>
+          <div class="note">Form was full last night. Try early AM. URL: caesarsaffiliate.com</div>
+        </div>
+        <span class="badge badge-blocked">Blocked</span>
+      </div>
+      <div class="task-row priority-urgent">
+        <div class="task-owner">MIKE</div>
+        <div class="task-text">
+          <strong>LOC at Endeavor Bank expires ~June 23, 2026</strong>
+          <div class="note">PCV application submitted. Follow up with Raymond Ko (rko@pcvmail.org). Pay ~$75K personal to reduce balance to $500K.</div>
+        </div>
+        <span class="badge badge-progress">In Progress</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🟡 High Priority — Mike</h2>
+      <div class="task-row priority-high">
+        <div class="task-owner">MIKE</div>
+        <div class="task-text">
+          <strong>MediaOptions contract decision — deadline June 2, 2026</strong>
+          <div class="note">Sam recommends: let it expire, develop the domain. Share MediaOptions emails with Sam first.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row priority-high">
+        <div class="task-owner">MIKE</div>
+        <div class="task-text">
+          <strong>Update LinkedIn profile</strong>
+          <div class="note">Sam has full draft of executive bio ready. Adds credibility for PCV loan.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🟡 High Priority — Chris</h2>
+      <div class="task-row priority-urgent">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Fix triple stroller page Amazon button</strong>
+          <div class="note">Current button is too small/invisible. See "For Chris" tab for exact replacement HTML. Page: summit-xc-series-triple-stroller page.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row priority-high">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Add Amazon buttons to 19 remaining product pages</strong>
+          <div class="note">All HTML blocks ready. See "For Chris" tab. Amazon Associates ID: onlinesport0c-20</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row priority-high">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Add Amazon buttons to 13+ team mailbox pages</strong>
+          <div class="note">Template HTML in "For Chris" tab. Same Associates ID.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row priority-high">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Put Sports Affiliate Programs page live at /affiliates/</strong>
+          <div class="note">Full HTML page is written and ready. Ask Sam to paste it in Telegram.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row priority-high">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Set up betting.onlinesports.com subdomain + WordPress</strong>
+          <div class="note">CRITICAL PATH — Sam has 5 complete betting pages ready to publish the moment this is live.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Add Mike as read-only in Google Search Console</strong>
+          <div class="note">Add mfarkas@onlinesports.com as read-only user</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">CHRIS</div>
+        <div class="task-text">
+          <strong>Enable Sam in Telegram group chat</strong>
+          <div class="note">Group with Mike + Chris + Sam created but Sam not responding. Check OpenClaw group settings.</div>
+        </div>
+        <span class="badge badge-todo">Pending</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🟢 Sam — In Progress</h2>
+      <div class="task-row">
+        <div class="task-owner">SAM</div>
+        <div class="task-text"><strong>5 betting content pages — COMPLETE</strong><div class="note">Best Sportsbooks, DraftKings review, FanDuel review, BetMGM review, Best Bonuses. Ready to publish.</div></div>
+        <span class="badge badge-done">Done</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">SAM</div>
+        <div class="task-text"><strong>10 state-by-state betting guides — COMPLETE</strong><div class="note">CA, NY, NJ, PA, IL, OH, MI, CO, AZ, TX all written.</div></div>
+        <span class="badge badge-done">Done</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">SAM</div>
+        <div class="task-text"><strong>Autographed memorabilia SEO plan — COMPLETE</strong><div class="note">Full plan for 44 domains including Amazon redirect quick wins.</div></div>
+        <span class="badge badge-done">Done</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">SAM</div>
+        <div class="task-text"><strong>Domain monetization triage — COMPLETE</strong><div class="note">All 118 domains tiered with action plan.</div></div>
+        <span class="badge badge-done">Done</span>
+      </div>
+      <div class="task-row">
+        <div class="task-owner">SAM</div>
+        <div class="task-text"><strong>MediaOptions analysis + recommendation — COMPLETE</strong><div class="note">Recommendation: let expire June 2. Full analysis ready.</div></div>
+        <span class="badge badge-done">Done</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AFFILIATES TAB -->
+  <div id="tab-affiliates" class="tab-content">
+    <div class="section">
+      <h2>💰 Betting Affiliate Applications — Status</h2>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <h3 style="color:#1a7431;">✅ DraftKings</h3>
+          <div class="status">Submitted via partnerships.draftkings.com<br><strong>Status:</strong> Under review</div>
+        </div>
+        <div class="affiliate-card">
+          <h3 style="color:#1849a9;">✅ FanDuel</h3>
+          <div class="status">Submitted via fanduelaffiliates.com<br><strong>Status:</strong> Under review — 48hr response expected</div>
+        </div>
+        <div class="affiliate-card">
+          <h3 style="color:#2980b9;">✅ BetRivers / Rush Street</h3>
+          <div class="status">Email sent to affiliates@rush-affiliates.com<br><strong>Status:</strong> Awaiting reply</div>
+        </div>
+        <div class="affiliate-card">
+          <h3 style="color:#8b6914;">✅ Impact.com (Fanatics + others)</h3>
+          <div class="status">Account created, publisher application submitted<br><strong>Status:</strong> Under review — 72hr response</div>
+        </div>
+        <div class="affiliate-card" style="border-color:#e47911;">
+          <h3 style="color:#e47911;">⏳ BetMGM</h3>
+          <div class="status">Captcha error on registration<br><strong>Action:</strong> Retry in Firefox or Chrome Incognito<br><strong>URL:</strong> partners.betmgm.com</div>
+        </div>
+        <div class="affiliate-card" style="border-color:#e47911;">
+          <h3 style="color:#e47911;">⏳ Caesars</h3>
+          <div class="status">Form storage full on submission<br><strong>Action:</strong> Retry early morning<br><strong>URL:</strong> caesarsaffiliate.com</div>
+        </div>
+        <div class="affiliate-card" style="border-color:#aaa;">
+          <h3 style="color:#aaa;">❌ ESPN Bet</h3>
+          <div class="status">Shut down Dec 1, 2025<br>DraftKings absorbed it — already applied to DK ✅</div>
+        </div>
+        <div class="affiliate-card" style="border-color:#aaa;">
+          <h3 style="color:#aaa;">❌ Bet365</h3>
+          <div class="status">Rejected — requires established betting traffic<br><strong>Action:</strong> Reapply in 3-4 months when betting subdomain has content</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🛒 Amazon Associates</h2>
+      <div class="task-row">
+        <div class="task-text"><strong>Status:</strong> <span class="badge badge-done">Active</span></div>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>Associates ID:</strong> onlinesport0c-20</div>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>Account login:</strong> associates@onlinesports.com (Chris's Amazon account)</div>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>First sale deadline:</strong> ~November 2026 (180 days from May 6)</div>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>Pages live:</strong> Triple stroller (button needs fix)</div>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>Pages pending:</strong> 19 product pages + 13+ mailbox pages (Chris implementing)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOR CHRIS TAB -->
+  <div id="tab-forchris" class="tab-content">
+    <div class="section">
+      <h2>🔧 Triple Stroller Page — Fix the Amazon Button</h2>
+      <p style="font-size:14px;color:#555;margin-bottom:12px;">Page: <strong>onlinesports.com/summit-xc-series-triple-stroller-from-the-baby-jogger-red-black.html</strong></p>
+      <p style="font-size:14px;color:#555;margin-bottom:12px;">Find the existing small Amazon link on the page and replace it with this block:</p>
+      <div class="code-block">&lt;div style="margin:25px 0;padding:22px;background:#fff8e7;border:3px solid #e47911;border-radius:10px;text-align:center;"&gt;
+  &lt;p style="font-size:19px;font-weight:bold;margin:0 0 6px 0;color:#333;"&gt;Looking for a Triple Jogging Stroller?&lt;/p&gt;
+  &lt;p style="font-size:14px;color:#666;margin:0 0 16px 0;"&gt;This item may no longer be available — Amazon has great options ready to ship.&lt;/p&gt;
+  &lt;a href="https://www.amazon.com/s?k=triple+jogging+stroller&amp;tag=onlinesport0c-20"
+     target="_blank" rel="nofollow sponsored"
+     style="display:inline-block;background:#e47911;color:#fff;padding:16px 36px;border-radius:6px;font-weight:bold;font-size:20px;text-decoration:none;"&gt;
+    👉 Shop on Amazon
+  &lt;/a&gt;
+  &lt;p style="font-size:12px;color:#aaa;margin:12px 0 0 0;"&gt;Free shipping on many items · Prices updated daily&lt;/p&gt;
+&lt;/div&gt;</div>
+      <button class="copy-btn" onclick="copyCode(this)">📋 Copy HTML</button>
+    </div>
+
+    <div class="section">
+      <h2>🔧 Amazon Button Template (All Product Pages)</h2>
+      <p style="font-size:14px;color:#555;margin-bottom:12px;">Use this template for every product page. Change the PRODUCT NAME and KEYWORDS fields only.</p>
+      <div class="code-block">&lt;div style="margin:25px 0;padding:22px;background:#fff8e7;border:3px solid #e47911;border-radius:10px;text-align:center;"&gt;
+  &lt;p style="font-size:19px;font-weight:bold;margin:0 0 6px 0;color:#333;"&gt;Looking for [PRODUCT NAME]?&lt;/p&gt;
+  &lt;p style="font-size:14px;color:#666;margin:0 0 16px 0;"&gt;This item may no longer be available — Amazon has great options ready to ship.&lt;/p&gt;
+  &lt;a href="https://www.amazon.com/s?k=[KEYWORDS]&amp;tag=onlinesport0c-20"
+     target="_blank" rel="nofollow sponsored"
+     style="display:inline-block;background:#e47911;color:#fff;padding:16px 36px;border-radius:6px;font-weight:bold;font-size:20px;text-decoration:none;"&gt;
+    👉 Shop on Amazon
+  &lt;/a&gt;
+  &lt;p style="font-size:12px;color:#aaa;margin:12px 0 0 0;"&gt;Free shipping on many items · Prices updated daily&lt;/p&gt;
+&lt;/div&gt;</div>
+      <button class="copy-btn" onclick="copyCode(this)">📋 Copy HTML</button>
+      <p style="font-size:13px;color:#888;margin-top:8px;">Replace [KEYWORDS] with search terms like: <code>football+helmets</code>, <code>youth+baseball+gloves</code>, etc. Replace spaces with + signs.</p>
+    </div>
+
+    <div class="section">
+      <h2>🔧 How to Host This Dashboard on GitHub Pages</h2>
+      <ol style="font-size:14px;color:#444;line-height:2.2;padding-left:20px;">
+        <li>Go to <strong>github.com</strong> and create a free account (or log in)</li>
+        <li>Click <strong>New Repository</strong> → name it <code>os-dashboard</code></li>
+        <li>Check <strong>Public</strong> and <strong>Add README file</strong> → click Create</li>
+        <li>Click <strong>Add file</strong> → <strong>Upload files</strong></li>
+        <li>Upload this <code>dashboard.html</code> file</li>
+        <li>Go to <strong>Settings</strong> → <strong>Pages</strong></li>
+        <li>Under Source, select <strong>Deploy from branch: main</strong></li>
+        <li>Save — site will be live at <strong>yourusername.github.io/os-dashboard/dashboard.html</strong> within 2-3 minutes</li>
+        <li>Bookmark that URL and share with Mike</li>
+      </ol>
+      <p style="font-size:13px;color:#888;margin-top:8px;">Totally free. No server. Updates automatically when you re-upload the file.</p>
+    </div>
+  </div>
+
+  <!-- PROGRESS TAB -->
+  <div id="tab-progress" class="tab-content">
+    <div class="section">
+      <h2>📈 Revenue Progress</h2>
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-size:14px;font-weight:600;">Amazon Affiliates</span>
+          <span style="font-size:14px;color:#888;">$0 / $5,000 monthly goal</span>
+        </div>
+        <div style="background:#eee;border-radius:4px;height:8px;"><div style="background:#e47911;width:0%;height:8px;border-radius:4px;"></div></div>
+        <p style="font-size:12px;color:#aaa;margin-top:4px;">Waiting for first button implementation from Chris</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-size:14px;font-weight:600;">Sports Betting Affiliates</span>
+          <span style="font-size:14px;color:#888;">$0 / $15,000 monthly goal</span>
+        </div>
+        <div style="background:#eee;border-radius:4px;height:8px;"><div style="background:#1849a9;width:0%;height:8px;border-radius:4px;"></div></div>
+        <p style="font-size:12px;color:#aaa;margin-top:4px;">4 applications submitted. Waiting for approval + betting subdomain.</p>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-size:14px;font-weight:600;">Total Monthly Revenue</span>
+          <span style="font-size:14px;color:#888;">$0 / $30,000 target</span>
+        </div>
+        <div style="background:#eee;border-radius:4px;height:8px;"><div style="background:#1a7431;width:0%;height:8px;border-radius:4px;"></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📊 Site Stats (May 2026)</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;">
+        <div style="background:#f9f9f9;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#1a1a2e;">2,400</div>
+          <div style="font-size:12px;color:#888;">Monthly Clicks</div>
+        </div>
+        <div style="background:#f9f9f9;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#1a1a2e;">82K</div>
+          <div style="font-size:12px;color:#888;">Monthly Impressions</div>
+        </div>
+        <div style="background:#f9f9f9;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#1a1a2e;">12.6</div>
+          <div style="font-size:12px;color:#888;">Avg Position</div>
+        </div>
+        <div style="background:#f9f9f9;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#1a1a2e;">2.9%</div>
+          <div style="font-size:12px;color:#888;">Click-Through Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⏰ Key Deadlines</h2>
+      <div class="task-row priority-urgent">
+        <div class="task-text"><strong>June 2, 2026</strong> — MediaOptions contract expires (OnlineSports.com listing)</div>
+        <span class="badge badge-progress">25 days</span>
+      </div>
+      <div class="task-row priority-urgent">
+        <div class="task-text"><strong>June 23, 2026</strong> — Endeavor Bank LOC expires</div>
+        <span class="badge badge-blocked">46 days</span>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>October 31, 2026</strong> — GRIT brokerage contract expires (4 domains)</div>
+        <span class="badge badge-todo">176 days</span>
+      </div>
+      <div class="task-row">
+        <div class="task-text"><strong>~November 2026</strong> — Amazon Associates first sale required (180-day clock)</div>
+        <span class="badge badge-progress">In window</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function copyCode(btn) {
+  const codeBlock = btn.previousElementSibling;
+  const text = codeBlock.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy HTML', 2000);
+  }).catch(() => {
+    btn.textContent = '❌ Copy failed — select manually';
+  });
+}
+</script>
+
+</body>
+</html>

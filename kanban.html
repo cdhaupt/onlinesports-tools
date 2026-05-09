@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OS Project Kanban</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1923; color: #eee; min-height: 100vh; }
+header { background: #1a2744; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2a3a5c; }
+header h1 { font-size: 20px; font-weight: 700; color: white; }
+header p { font-size: 12px; color: #7a8aaa; margin-top: 2px; }
+.filters { display: flex; gap: 8px; padding: 14px 24px; background: #131f30; border-bottom: 1px solid #1e2e45; flex-wrap: wrap; align-items: center; }
+.filters span { font-size: 12px; color: #7a8aaa; margin-right: 4px; }
+.ftab { padding: 5px 14px; border-radius: 20px; border: 1.5px solid #2a3a5c; cursor: pointer; font-size: 12px; font-weight: 600; color: #aaa; background: transparent; transition: all 0.15s; }
+.ftab:hover { border-color: #4a6aac; color: white; }
+.ftab.active { color: white; border-color: transparent; }
+.ftab.all.active { background: #3a5adc; }
+.ftab.mike.active { background: #c0621a; }
+.ftab.chris.active { background: #1a72c0; }
+.ftab.sam.active { background: #7a2ab0; }
+.board { display: flex; gap: 16px; padding: 20px 24px; overflow-x: auto; min-height: calc(100vh - 140px); }
+.col { background: #1a2535; border-radius: 12px; width: 280px; flex-shrink: 0; display: flex; flex-direction: column; max-height: calc(100vh - 160px); }
+.col-header { padding: 14px 16px; border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: space-between; }
+.col-header h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+.col-count { background: rgba(255,255,255,0.15); border-radius: 12px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+.col-todo .col-header { background: #1e3050; }
+.col-inprogress .col-header { background: #2a2a10; }
+.col-review .col-header { background: #1e1a40; }
+.col-done .col-header { background: #0e2a1e; }
+.col-body { padding: 12px; overflow-y: auto; flex: 1; }
+.card { background: #243045; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; cursor: grab; border-left: 4px solid #ccc; transition: transform 0.15s, box-shadow 0.15s; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+.card.hidden { display: none; }
+.card.dragging { opacity: 0.4; }
+.card.urgent { border-left-color: #e74c3c; }
+.card.high { border-left-color: #e67e22; }
+.card.medium { border-left-color: #f1c40f; }
+.card.low { border-left-color: #95a5a6; }
+.card.done-col { border-left-color: #27ae60; opacity: 0.75; }
+.card-title { font-size: 13px; font-weight: 600; color: #e8edf5; line-height: 1.4; margin-bottom: 8px; }
+.card-desc { font-size: 11px; color: #7a8aaa; line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card-footer { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.otag { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.om { background: #3a200a; color: #e67e22; }
+.oc { background: #0a1e3a; color: #5aacee; }
+.os { background: #1e0a3a; color: #b06add; }
+.ptag { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.pu { background: #3a0a0a; color: #e74c3c; }
+.ph { background: #3a1a0a; color: #e67e22; }
+.pm { background: #2a2a00; color: #d4ac0d; }
+.pl { background: #1e1e1e; color: #888; }
+.date-sm { font-size: 10px; color: #556; margin-left: auto; }
+.col-drop-target { border: 2px dashed #4a6adc; border-radius: 8px; min-height: 60px; margin-bottom: 10px; display: none; }
+.col-body.drag-over .col-drop-target { display: block; }
+.progress-bar { background: #1a2535; height: 6px; }
+.progress-fill { background: linear-gradient(90deg,#27ae60,#2ecc71); height: 100%; transition: width 0.5s; }
+.card-actions { display: flex; gap: 4px; margin-top: 8px; }
+.btn-move { background: #2a3a5c; border: none; color: #aaa; padding: 3px 8px; border-radius: 4px; font-size: 10px; cursor: pointer; }
+.btn-move:hover { background: #3a5aac; color: white; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>⚙️ Online Sports — Kanban Board</h1>
+    <p id="progress-label">Loading...</p>
+  </div>
+  <div style="text-align:right;font-size:11px;color:#556;">May 6, 2026</div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="pfill" style="width:0%"></div></div>
+
+<div class="filters">
+  <span>Filter by owner:</span>
+  <div class="ftab all active" onclick="setFilter('all',this)">All</div>
+  <div class="ftab mike" onclick="setFilter('mike',this)">👤 Mike</div>
+  <div class="ftab chris" onclick="setFilter('chris',this)">👤 Chris</div>
+  <div class="ftab sam" onclick="setFilter('sam',this)">⚙️ Sam</div>
+</div>
+
+<div class="board">
+  <div class="col col-todo" id="col-todo">
+    <div class="col-header"><h2>📋 To Do</h2><span class="col-count" id="cnt-todo">0</span></div>
+    <div class="col-body" id="body-todo"><div class="col-drop-target"></div></div>
+  </div>
+  <div class="col col-inprogress" id="col-inprogress">
+    <div class="col-header"><h2>⚡ In Progress</h2><span class="col-count" id="cnt-inprogress">0</span></div>
+    <div class="col-body" id="body-inprogress"><div class="col-drop-target"></div></div>
+  </div>
+  <div class="col col-review" id="col-review">
+    <div class="col-header"><h2>👀 Review / Blocked</h2><span class="col-count" id="cnt-review">0</span></div>
+    <div class="col-body" id="body-review"><div class="col-drop-target"></div></div>
+  </div>
+  <div class="col col-done" id="col-done">
+    <div class="col-header" style="background:#0e2a1e;"><h2 style="color:#27ae60;">✅ Done</h2><span class="col-count" id="cnt-done">0</span></div>
+    <div class="col-body" id="body-done"><div class="col-drop-target"></div></div>
+  </div>
+</div>
+
+<script>
+var tasks = [
+  {id:1,owner:"mike",priority:"urgent",col:"todo",title:"Submit 5 betting affiliate applications",desc:"DraftKings, FanDuel, BetMGM, Caesars, ESPN Bet. Copy ready. 30-45 min total. EIN: 33-0659299",created:"May 5"},
+  {id:2,owner:"chris",priority:"urgent",col:"inprogress",title:"Fix triple stroller page: button + URL",desc:"Update to large orange button. URL: amazon.com/s?k=triple+jogging+stroller&tag=onlinesport0c-20",created:"May 6"},
+  {id:3,owner:"chris",priority:"high",col:"todo",title:"Add Amazon buttons to 19 product pages",desc:"Use large button template. Verify each URL. Full list in /workspace/affiliate-applications/chris-amazon-link-list.md",created:"May 6"},
+  {id:4,owner:"chris",priority:"high",col:"todo",title:"Add Amazon links to ~13 team mailbox pages",desc:"Format: amazon.com/s?k=[team]+mailbox&tag=onlinesport0c-20. Teams: ND, Bills, Bears, Lions, Packers, Dolphins, Steelers, Cowboys, Eagles, Pats, Michigan, OSU...",created:"May 6"},
+  {id:5,owner:"chris",priority:"high",col:"todo",title:"Set up betting.onlinesports.com + WordPress",desc:"New subdomain for sports betting affiliate content. Existing Magento untouched.",created:"May 5"},
+  {id:6,owner:"chris",priority:"medium",col:"todo",title:"Begin Shopify migration planning",desc:"Scope out replacing Magento (~$1K/month) with Shopify. Run in parallel.",created:"May 5"},
+  {id:7,owner:"mike",priority:"high",col:"todo",title:"Decide: renew MediaOptions or let expire (June 2)",desc:"Contract expires June 2. No auto-renew. Read MediaOptions emails first. Sam recommends letting expire.",created:"May 5",deadline:"June 2"},
+  {id:8,owner:"mike",priority:"high",col:"todo",title:"Share MediaOptions emails with Sam",desc:"Forward email thread so Sam can assess their activity level before renewal decision.",created:"May 5"},
+  {id:9,owner:"mike",priority:"medium",col:"todo",title:"Update LinkedIn profile",desc:"Sam has full draft ready. Update before PCV follows up. Then add link to PCV application portal.",created:"May 5"},
+  {id:10,owner:"mike",priority:"medium",col:"todo",title:"Monitor PCV loan — respond to requests within 24hrs",desc:"LOC expires ~June 23. PCV needs 4-5 weeks. Fast responses = faster approval.",created:"May 5",deadline:"June 23"},
+  {id:11,owner:"chris",priority:"medium",col:"todo",title:"Add Mike as read-only user in Google Search Console",desc:"Settings > Users & Permissions > Add mfarkas@onlinesports.com with Restricted access.",created:"May 5"},
+  {id:12,owner:"sam",priority:"high",col:"inprogress",title:"Write 5 core betting content pages",desc:"Best Sportsbooks, DraftKings Review, FanDuel Review, BetMGM Review, Best Bonuses. Publish to WordPress subdomain when ready.",created:"May 5"},
+  {id:13,owner:"sam",priority:"medium",col:"todo",title:"Write Sports Affiliate Programs page (/affiliates/)",desc:"2,626 impressions/month, near-zero clicks. Easy win. Build proper page targeting this query.",created:"May 6"},
+  {id:14,owner:"mike",priority:"low",col:"todo",title:"Discuss building tenant strategy with Sam",desc:"Lost $10K/month tenant. Multiple LOIs pending. PRIME (Amazon) is one option. Pros/cons to review.",created:"May 5"},
+  {id:15,owner:"mike",priority:"low",col:"todo",title:"Share inventory liquidation details with Sam",desc:"~$1M legacy inventory. Need liquidation plan to pay down $600K LOC.",created:"May 5"}
+];
+
+var completed = [
+  {id:"d1",owner:"chris",col:"done",title:"Pull GSC query + pages report",desc:"3-month data provided. Used to identify affiliate link targets.",created:"May 5",completed:"May 5"},
+  {id:"d2",owner:"chris",col:"done",title:"Set up associates@onlinesports.com email",desc:"New email for Amazon Associates registration.",created:"May 5",completed:"May 5"},
+  {id:"d3",owner:"chris",col:"done",title:"Register Amazon Associates account",desc:"Approved. Tracking ID: onlinesport0c-20",created:"May 5",completed:"May 6"},
+  {id:"d4",owner:"chris",col:"done",title:"Add first Amazon link (triple stroller page)",desc:"Live — button style + URL update still pending (task #2).",created:"May 5",completed:"May 6"},
+  {id:"d5",owner:"sam",col:"done",title:"Build OnlineSports.com affiliate blueprint",desc:"Saved to /workspace/blueprints/",created:"May 5",completed:"May 5"},
+  {id:"d6",owner:"sam",col:"done",title:"Draft 5 betting affiliate applications",desc:"All copy ready for Mike to submit.",created:"May 5",completed:"May 5"},
+  {id:"d7",owner:"sam",col:"done",title:"Identify top 20 pages + Amazon URLs",desc:"Complete list with keywords + button HTML given to Chris.",created:"May 5",completed:"May 6"},
+  {id:"d8",owner:"sam",col:"done",title:"Review SBA EIDL for gambling restrictions",desc:"No restrictions found. Affiliate content cleared.",created:"May 5",completed:"May 5"}
+];
+
+var allTasks = tasks.concat(completed);
+var currentFilter = "all";
+var oclass = {mike:"om",chris:"oc",sam:"os"};
+var pclass = {urgent:"pu",high:"ph",medium:"pm",low:"pl"};
+var plabel = {urgent:"🔴 Urgent",high:"🟠 High",medium:"🟡 Medium",low:"⚪ Low"};
+var cols = ["todo","inprogress","review","done"];
+
+function render() {
+  cols.forEach(function(col) {
+    var body = document.getElementById("body-"+col);
+    var existing = body.querySelectorAll(".card");
+    existing.forEach(function(c){ c.remove(); });
+  });
+
+  var counts = {todo:0,inprogress:0,review:0,done:0};
+
+  allTasks.forEach(function(t) {
+    var show = (currentFilter === "all" || currentFilter === t.owner);
+    var isDone = (t.col === "done");
+    counts[t.col] = (counts[t.col]||0) + (show?1:0);
+
+    var dl = t.deadline ? '<br><span class="date-sm">⏰ Due: '+t.deadline+'</span>' : '';
+    var comp = t.completed ? '<span class="date-sm">✓ '+t.completed+'</span>' : '<span class="date-sm">'+t.created+'</span>';
+
+    var btns = '';
+    if (!isDone) {
+      var colIdx = cols.indexOf(t.col);
+      if (colIdx > 0) btns += '<button class="btn-move" onclick="moveCard(\''+t.id+'\',\''+cols[colIdx-1]+'\')">← Back</button>';
+      if (colIdx < cols.length-1) btns += '<button class="btn-move" onclick="moveCard(\''+t.id+'\',\''+cols[colIdx+1]+'\')">Forward →</button>';
+    }
+
+    var cardClass = isDone ? "done-col" : (t.priority||"low");
+    var html = '<div class="card '+cardClass+(show?'':' hidden')+'" id="card-'+t.id+'" draggable="true" ondragstart="dragStart(event,\''+t.id+'\')" ondragend="dragEnd(event)">'
+      +'<div class="card-title">'+t.title+'</div>'
+      +'<div class="card-desc">'+t.desc+'</div>'
+      +'<div class="card-footer">'
+      +'<span class="otag '+oclass[t.owner]+'">'+t.owner+'</span>'
+      +(t.priority?'<span class="ptag '+pclass[t.priority]+'">'+plabel[t.priority]+'</span>':'')
+      +comp+dl
+      +'</div>'
+      +(btns?'<div class="card-actions">'+btns+'</div>':'')
+      +'</div>';
+
+    var body = document.getElementById("body-"+t.col);
+    var dropTarget = body.querySelector(".col-drop-target");
+    dropTarget.insertAdjacentHTML('afterend', html);
+  });
+
+  cols.forEach(function(col){
+    var visCount = document.querySelectorAll('#body-'+col+' .card:not(.hidden)').length;
+    document.getElementById("cnt-"+col).textContent = visCount;
+  });
+
+  var total = allTasks.length;
+  var done = allTasks.filter(function(t){ return t.col==="done"; }).length;
+  var pct = Math.round(done/total*100);
+  document.getElementById("pfill").style.width = pct+"%";
+  document.getElementById("progress-label").textContent = pct+"% complete — "+done+" of "+total+" tasks done";
+}
+
+function moveCard(id, newCol) {
+  var t = allTasks.find(function(x){ return String(x.id)===String(id); });
+  if (t) { t.col = newCol; render(); }
+}
+
+function setFilter(f, el) {
+  document.querySelectorAll('.ftab').forEach(function(t){ t.classList.remove('active'); });
+  el.classList.add('active');
+  currentFilter = f;
+  render();
+}
+
+var dragId = null;
+function dragStart(e, id) {
+  dragId = id;
+  e.dataTransfer.effectAllowed = "move";
+  setTimeout(function(){ document.getElementById("card-"+id).classList.add("dragging"); }, 0);
+  document.querySelectorAll(".col-body").forEach(function(b){ b.addEventListener("dragover", onDragOver); b.addEventListener("drop", onDrop); b.addEventListener("dragleave", onDragLeave); });
+}
+function dragEnd(e) {
+  if (dragId) document.getElementById("card-"+dragId).classList.remove("dragging");
+  document.querySelectorAll(".col-body").forEach(function(b){ b.classList.remove("drag-over"); });
+}
+function onDragOver(e) { e.preventDefault(); this.classList.add("drag-over"); }
+function onDragLeave(e) { this.classList.remove("drag-over"); }
+function onDrop(e) {
+  e.preventDefault();
+  this.classList.remove("drag-over");
+  var colId = this.id.replace("body-","");
+  moveCard(dragId, colId);
+  dragId = null;
+}
+
+render();
+</script>
+</body>
+</html>
