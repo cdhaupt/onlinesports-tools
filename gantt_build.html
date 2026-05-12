@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OnlineSports.com — Revenue Stream Gantt Charts</title>
+  <style>
+    @media print {
+      .no-print { display: none; }
+      body { background: white; }
+      .stream-block { page-break-inside: avoid; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, sans-serif; background: #f5f5f5; color: #222; padding: 20px; }
+    .no-print { text-align: center; margin-bottom: 20px; }
+    .no-print button { background: #e47911; color: white; border: none; padding: 10px 28px; font-size: 15px; border-radius: 6px; cursor: pointer; }
+    .page { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    .doc-meta { font-size: 12px; color: #888; margin-bottom: 28px; border-bottom: 2px solid #e47911; padding-bottom: 12px; }
+    .stream-block { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 28px; overflow: hidden; }
+    .stream-header { padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .stream-header h2 { font-size: 16px; }
+    .stream-header .first-dollar { font-size: 13px; font-weight: 700; background: #d4edda; color: #155724; padding: 4px 12px; border-radius: 12px; }
+    .gantt-wrap { padding: 0 20px 20px; overflow-x: auto; }
+    .gantt { min-width: 700px; }
+    .gantt-months { display: flex; margin-left: 180px; margin-bottom: 4px; }
+    .gantt-month { flex: 1; text-align: center; font-size: 10px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+    .gantt-row { display: flex; align-items: center; margin-bottom: 5px; position: relative; }
+    .gantt-label { width: 180px; min-width: 180px; font-size: 11px; padding-right: 12px; line-height: 1.3; color: #444; }
+    .gantt-label .owner { font-size: 10px; color: #e47911; font-weight: 700; }
+    .gantt-label .type { font-size: 9px; color: #aaa; }
+    .gantt-track { flex: 1; height: 22px; background: #f5f5f5; border-radius: 4px; position: relative; }
+    .gantt-bar { position: absolute; height: 100%; border-radius: 4px; display: flex; align-items: center; padding: 0 6px; font-size: 10px; color: white; font-weight: 600; white-space: nowrap; overflow: hidden; }
+    .bar-critical { background: #e47911; }
+    .bar-parallel { background: #5b9bd5; }
+    .bar-done { background: #28a745; }
+    .bar-waiting { background: #aaa; }
+    .first-dollar-line { position: absolute; top: 0; bottom: 0; width: 2px; background: #28a745; z-index: 10; }
+    .first-dollar-label { position: absolute; top: -18px; font-size: 9px; font-weight: 700; color: #28a745; white-space: nowrap; transform: translateX(-50%); }
+    .legend { display: flex; gap: 16px; padding: 10px 20px; background: #fafafa; border-top: 1px solid #f0f0f0; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #555; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+    .section-note { font-size: 12px; color: #666; padding: 8px 20px 0; font-style: italic; }
+    .months-header { position: relative; margin-left: 180px; height: 24px; }
+    .divider-line { position: absolute; top: 0; bottom: 0; width: 1px; background: #e8e8e8; pointer-events: none; }
+    .lt-col { width: 110px; min-width: 110px; padding-left: 8px; font-size: 10px; color: #555; display: flex; flex-direction: column; gap: 2px; }
+    .lt-label { font-weight: 700; color: #333; font-size: 10px; }
+    .lt-bar-wrap { background: #eee; border-radius: 3px; height: 7px; width: 100%; }
+    .lt-bar { background: #e47911; border-radius: 3px; height: 100%; }
+    .lt-bar-done { background: #28a745; }
+    .lt-bar-zero { background: #ccc; }
+    .lt-pct { font-size: 9px; color: #888; }
+  </style>
+</head>
+<body>
+<div class="no-print"><button onclick="window.print()">🖨️ Print / Save as PDF</button></div>
+<div class="page">
+  <h1>Revenue Stream Gantt Charts</h1>
+  <div class="doc-meta">OnlineSports.com &nbsp;·&nbsp; Start date: May 12, 2026 &nbsp;·&nbsp; Last updated: May 11, 2026 9:50 PM PT</div>
+
+  <!-- STREAM 1: Amazon Buttons -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#fff8f0;border-bottom:3px solid #28a745;">
+      <div>
+        <h2>#1 — Amazon Buttons on Existing Pages</h2>
+        <div style="font-size:12px;color:#666;margin-top:2px;">Fastest path. Traffic exists today. Just needs the HTML added.</div>
+      </div>
+      <div class="first-dollar">🎯 First $1: Week 2–3</div>
+    </div>
+    <div class="section-note">Critical path: Chris adds HTML to pages. Parallel: Sam preps remaining HTML blocks. Sequential: Amazon approval must come first.</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-months">
+          <div class="gantt-month">Week 1</div><div class="gantt-month">Week 2</div><div class="gantt-month">Week 3</div><div class="gantt-month">Week 4</div>
+          <div class="gantt-month">Month 2</div><div class="gantt-month">Month 3</div><div class="gantt-month">Month 4</div>
+        </div>
+        <!-- rows: label | 7 units wide track -->
+        <div class="gantt-row"><div class="gantt-label">Confirm Amazon Associates approved<div class="owner">MIKE</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:0%;width:14%;">Confirm</div></div><div class="lt-col"><div class="lt-label">1 week</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Triple stroller page already live<div class="owner">DONE ✅</div></div><div class="gantt-track"><div class="gantt-bar bar-done" style="left:0%;width:100%;">Live now</div></div><div class="lt-col"><div class="lt-label">✅ Done</div><div class="lt-bar-wrap"><div class="lt-bar-done" style="width:100%;"></div></div><div class="lt-pct">100% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Sam preps HTML for 32 pages<div class="owner">SAM</div><div class="type">parallel</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:0%;width:28%;">Build HTML blocks</div></div><div class="lt-col"><div class="lt-label">2 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Chris adds HTML — batch 1 (10 pages)<div class="owner">CHRIS</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:14%;width:28%;">Add to Magento</div></div><div class="lt-col"><div class="lt-label">3 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">First visitor clicks → Amazon<div class="owner">AUTO</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:28%;width:14%;">First click</div><div class="first-dollar-line" style="left:28%;"><div class="first-dollar-label">🟢 First $1</div></div></div><div class="lt-col"><div class="lt-label">3 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Chris adds HTML — batch 2 (22 pages)<div class="owner">CHRIS</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:42%;width:29%;">Complete all pages</div></div><div class="lt-col"><div class="lt-label">7 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Monthly commission payout<div class="owner">AMAZON</div><div class="type">60-day delay</div></div><div class="gantt-track"><div class="gantt-bar bar-waiting" style="left:57%;width:43%;">Wait for payout</div></div><div class="lt-col"><div class="lt-label">4 months</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div>Already done</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e47911;"></div>Critical path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b9bd5;"></div>Can run in parallel</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa;"></div>Waiting/dependency</div>
+    </div>
+  </div>
+
+  <!-- STREAM 2: Sports Betting -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#fff8f0;border-bottom:3px solid #e47911;">
+      <div>
+        <h2>#2 — Sports Betting Affiliate ← Biggest Upside</h2>
+        <div style="font-size:12px;color:#666;margin-top:2px;">$250–$350 per depositor. Highest CPA in affiliate marketing.</div>
+      </div>
+      <div class="first-dollar" style="background:#fff3cd;color:#856404;">🎯 First $1: Month 2–3</div>
+    </div>
+    <div class="section-note">Critical path: betting subdomain setup → affiliate approval → traffic. Content is already written.</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-months">
+          <div class="gantt-month">Week 1</div><div class="gantt-month">Week 2</div><div class="gantt-month">Week 3</div><div class="gantt-month">Week 4</div>
+          <div class="gantt-month">Month 2</div><div class="gantt-month">Month 3</div><div class="gantt-month">Month 4</div>
+        </div>
+        <div class="gantt-row"><div class="gantt-label">Set up betting.onlinesports.com WordPress<div class="owner">CHRIS</div><div class="type">⚠️ CRITICAL BLOCKER</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:0%;width:28%;">WP setup</div></div><div class="lt-col"><div class="lt-label">3 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">15 betting pages already written<div class="owner">DONE ✅</div></div><div class="gantt-track"><div class="gantt-bar bar-done" style="left:0%;width:100%;">Content ready</div></div><div class="lt-col"><div class="lt-label">✅ Done</div><div class="lt-bar-wrap"><div class="lt-bar-done" style="width:100%;"></div></div><div class="lt-pct">100% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Upload + publish content<div class="owner">CHRIS/SAM</div><div class="type">parallel w/ WP setup</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:14%;width:14%;">Publish</div></div><div class="lt-col"><div class="lt-label">2 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">DraftKings/FanDuel approval<div class="owner">WAITING</div><div class="type">applied ✅</div></div><div class="gantt-track"><div class="gantt-bar bar-waiting" style="left:0%;width:42%;">Awaiting approval (2–6 weeks)</div></div><div class="lt-col"><div class="lt-label">6 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Add affiliate links to live pages<div class="owner">SAM</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:42%;width:14%;">Add links</div></div><div class="lt-col"><div class="lt-label">7 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">First depositor clicks through<div class="owner">AUTO</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:57%;width:14%;">First click<div class="first-dollar-line" style="left:0%;"><div class="first-dollar-label">🟡 First $250+</div></div></div></div><div class="lt-col"><div class="lt-label">8 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Caesars approval + BetMGM retry<div class="owner">MIKE/CHRIS</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:14%;width:28%;">Retry applications</div></div><div class="lt-col"><div class="lt-label">4 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div>Already done</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e47911;"></div>Critical path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b9bd5;"></div>Can run in parallel</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa;"></div>Waiting/dependency</div>
+    </div>
+  </div>
+
+  <!-- STREAM 3: Autographed Memorabilia -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#fff8f0;border-bottom:3px solid #5b9bd5;">
+      <div>
+        <h2>#3 — Autographed Memorabilia Domains</h2>
+        <div style="font-size:12px;color:#666;margin-top:2px;">45 owned domains. High purchase-intent search traffic.</div>
+      </div>
+      <div class="first-dollar" style="background:#cce5ff;color:#004085;">🎯 First $1: Month 2–4</div>
+    </div>
+    <div class="section-note">2 domains submitted. 8 more needed. DNS takes up to 24h. Amazon traffic starts immediately after DNS resolves.</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-months">
+          <div class="gantt-month">Week 1</div><div class="gantt-month">Week 2</div><div class="gantt-month">Week 3</div><div class="gantt-month">Week 4</div>
+          <div class="gantt-month">Month 2</div><div class="gantt-month">Month 3</div><div class="gantt-month">Month 4</div>
+        </div>
+        <div class="gantt-row"><div class="gantt-label">2 domains submitted to Hover<div class="owner">DONE ✅</div></div><div class="gantt-track"><div class="gantt-bar bar-done" style="left:0%;width:100%;">autographedfootballjersey(s).com</div></div><div class="lt-col"><div class="lt-label">✅ Done</div><div class="lt-bar-wrap"><div class="lt-bar-done" style="width:100%;"></div></div><div class="lt-pct">100% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">DNS propagation (24–48h)<div class="owner">AUTO</div></div><div class="gantt-track"><div class="gantt-bar bar-waiting" style="left:0%;width:14%;">DNS resolving</div></div><div class="lt-col"><div class="lt-label">2 days</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:50%;"></div></div><div class="lt-pct">50% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Submit remaining 8 domains<div class="owner">CHRIS</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:0%;width:14%;">~20 min in Hover</div></div><div class="lt-col"><div class="lt-label">1 week</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Verify all 10 redirecting correctly<div class="owner">SAM</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:14%;width:14%;">Verify</div></div><div class="lt-col"><div class="lt-label">10 days</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Organic search traffic finds domains<div class="owner">AUTO</div><div class="type">depends on search volume</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:14%;width:57%;">Traffic builds<div class="first-dollar-line" style="left:0%;"><div class="first-dollar-label">🔵 First $1</div></div></div></div><div class="lt-col"><div class="lt-label">2 months</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:2%;"></div></div><div class="lt-pct">2% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Build SEO landing pages (next phase)<div class="owner">SAM</div><div class="type">parallel</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:28%;width:57%;">SEO content</div></div><div class="lt-col"><div class="lt-label">3 months</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:1%;"></div></div><div class="lt-pct">1% elapsed</div></div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div>Already done</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e47911;"></div>Critical path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b9bd5;"></div>Can run in parallel</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa;"></div>Waiting/dependency</div>
+    </div>
+  </div>
+
+  <!-- STREAM 4: Sports Affiliate Programs Page -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#fff8f0;border-bottom:3px solid #5b9bd5;">
+      <div>
+        <h2>#4 — Sports Affiliate Programs Page</h2>
+        <div style="font-size:12px;color:#666;margin-top:2px;">2,626 impressions/month. Page exists but has irrelevant content. Near-zero clicks today.</div>
+      </div>
+      <div class="first-dollar" style="background:#cce5ff;color:#004085;">🎯 First $1: Month 1–2</div>
+    </div>
+    <div class="section-note">New page is written and ready. Just needs to replace the existing page. Parallel with everything else.</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-months">
+          <div class="gantt-month">Week 1</div><div class="gantt-month">Week 2</div><div class="gantt-month">Week 3</div><div class="gantt-month">Week 4</div>
+          <div class="gantt-month">Month 2</div><div class="gantt-month">Month 3</div><div class="gantt-month">Month 4</div>
+        </div>
+        <div class="gantt-row"><div class="gantt-label">New page content written<div class="owner">DONE ✅</div></div><div class="gantt-track"><div class="gantt-bar bar-done" style="left:0%;width:100%;">Ready to deploy</div></div><div class="lt-col"><div class="lt-label">✅ Done</div><div class="lt-bar-wrap"><div class="lt-bar-done" style="width:100%;"></div></div><div class="lt-pct">100% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Chris publishes new page to Magento<div class="owner">CHRIS</div><div class="type">⚡ Quick win — 30 min</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:0%;width:14%;">Publish</div></div><div class="lt-col"><div class="lt-label">1 week</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Existing traffic starts clicking<div class="owner">AUTO</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:14%;width:57%;">Traffic monetized<div class="first-dollar-line" style="left:0%;"><div class="first-dollar-label">🔵 First $1</div></div></div></div><div class="lt-col"><div class="lt-label">2 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:2%;"></div></div><div class="lt-pct">2% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Apply to additional sports affiliates<div class="owner">SAM/MIKE</div><div class="type">parallel</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:0%;width:42%;">More programs</div></div><div class="lt-col"><div class="lt-label">6 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:2%;"></div></div><div class="lt-pct">2% elapsed</div></div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div>Already done</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e47911;"></div>Critical path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b9bd5;"></div>Can run in parallel</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa;"></div>Waiting/dependency</div>
+    </div>
+  </div>
+
+  <!-- STREAM 5: Domain Portfolio -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#fff8f0;border-bottom:3px solid #aaa;">
+      <div>
+        <h2>#5 — Domain Portfolio</h2>
+        <div style="font-size:12px;color:#666;margin-top:2px;">118 domains. Mix of redirect, develop, or sell.</div>
+      </div>
+      <div class="first-dollar" style="background:#e2e3e5;color:#555;">🎯 First $1: Month 3–6</div>
+    </div>
+    <div class="section-note">Longest lead time. Revenue comes from parking income, affiliate redirects, or domain sales. Triage needed first.</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-months">
+          <div class="gantt-month">Week 1</div><div class="gantt-month">Week 2</div><div class="gantt-month">Week 3</div><div class="gantt-month">Week 4</div>
+          <div class="gantt-month">Month 2</div><div class="gantt-month">Month 3</div><div class="gantt-month">Month 4</div>
+        </div>
+        <div class="gantt-row"><div class="gantt-label">Triage 118 domains (redirect/develop/sell)<div class="owner">SAM</div><div class="type">parallel</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:0%;width:28%;">Triage analysis</div></div><div class="lt-col"><div class="lt-label">3 weeks</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:5%;"></div></div><div class="lt-pct">5% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Set up parking/redirects for top 20<div class="owner">CHRIS/SAM</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:28%;width:28%;">Configure</div></div><div class="lt-col"><div class="lt-label">7 weeks</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">List 5–10 premium domains for sale<div class="owner">MIKE</div><div class="type">parallel</div></div><div class="gantt-track"><div class="gantt-bar bar-parallel" style="left:14%;width:57%;">GoDaddy/Afternic listings</div></div><div class="lt-col"><div class="lt-label">2 months</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:2%;"></div></div><div class="lt-pct">2% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">GRIT domains (expire Oct 2026)<div class="owner">MIKE</div><div class="type">decision needed</div></div><div class="gantt-track"><div class="gantt-bar bar-critical" style="left:0%;width:71%;">Renew or let expire — decide by Aug</div></div><div class="lt-col"><div class="lt-label">3 months</div><div class="lt-bar-wrap"><div class="lt-bar" style="width:2%;"></div></div><div class="lt-pct">2% elapsed</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">First parking/redirect revenue<div class="owner">AUTO</div></div><div class="gantt-track"><div class="gantt-bar bar-waiting" style="left:57%;width:43%;">Revenue starts<div class="first-dollar-line" style="left:0%;"><div class="first-dollar-label">⚪ First $1</div></div></div></div><div class="lt-col"><div class="lt-label">4 months</div><div class="lt-bar-wrap"><div class="lt-bar-zero" style="width:0%;"></div></div><div class="lt-pct">0% elapsed</div></div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div>Already done</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e47911;"></div>Critical path</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b9bd5;"></div>Can run in parallel</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa;"></div>Waiting/dependency</div>
+    </div>
+  </div>
+
+  <!-- Summary table -->
+  <div class="stream-block">
+    <div class="stream-header" style="background:#222;">
+      <h2 style="color:white;">First Dollar Summary — All 5 Streams</h2>
+    </div>
+    <div style="padding:20px;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:#f5f5f5;">
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">Stream</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">First $1 Target</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">Blocker</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">Lead Time</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">Elapsed</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid #ddd;">Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#f0fff4;"><td style="padding:9px 10px;font-weight:700;">Amazon Buttons</td><td style="padding:9px 10px;color:#28a745;font-weight:700;">Week 2–3</td><td style="padding:9px 10px;">Chris adds HTML to pages</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">2–3 weeks</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#e47911;border-radius:3px;height:100%;width:5%;"></div></div><div style="font-size:10px;color:#888;">5%</div></td><td style="padding:9px 10px;color:#e47911;font-weight:700;">CHRIS</td></tr>
+          <tr><td style="padding:9px 10px;font-weight:700;">Sports Affiliate Page</td><td style="padding:9px 10px;color:#28a745;font-weight:700;">Month 1–2</td><td style="padding:9px 10px;">Chris publishes new page</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">1–2 months</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#e47911;border-radius:3px;height:100%;width:2%;"></div></div><div style="font-size:10px;color:#888;">2%</div></td><td style="padding:9px 10px;color:#e47911;font-weight:700;">CHRIS</td></tr>
+          <tr style="background:#fff8f0;"><td style="padding:9px 10px;font-weight:700;">Autograph Domains</td><td style="padding:9px 10px;color:#5b9bd5;font-weight:700;">Month 2–4</td><td style="padding:9px 10px;">Submit 8 remaining + DNS</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">2–4 months</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#5b9bd5;border-radius:3px;height:100%;width:2%;"></div></div><div style="font-size:10px;color:#888;">2%</div></td><td style="padding:9px 10px;color:#e47911;font-weight:700;">CHRIS</td></tr>
+          <tr><td style="padding:9px 10px;font-weight:700;">Sports Betting Affiliate</td><td style="padding:9px 10px;color:#856404;font-weight:700;">Month 2–3</td><td style="padding:9px 10px;">betting subdomain + approval</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">2–3 months</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#856404;border-radius:3px;height:100%;width:2%;"></div></div><div style="font-size:10px;color:#888;">2%</div></td><td style="padding:9px 10px;color:#e47911;font-weight:700;">CHRIS</td></tr>
+          <tr style="background:#f5f5f5;"><td style="padding:9px 10px;font-weight:700;">Domain Portfolio</td><td style="padding:9px 10px;color:#555;font-weight:700;">Month 3–6</td><td style="padding:9px 10px;">Triage + setup</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">3–6 months</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#aaa;border-radius:3px;height:100%;width:1%;"></div></div><div style="font-size:10px;color:#888;">1%</div></td><td style="padding:9px 10px;color:#e47911;font-weight:700;">MIKE/CHRIS</td></tr>
+          <tr style="background:#fff3cd;font-weight:700;"><td style="padding:10px;font-size:14px;">🎯 First $ of any kind</td><td style="padding:10px;color:#e47911;font-size:14px;">Week 2–3</td><td style="padding:10px;">Chris adds first Amazon HTML block</td><td style="padding:9px 10px;"><div style="font-size:11px;font-weight:700;">2–3 weeks</div><div style="background:#eee;border-radius:3px;height:6px;width:80px;margin-top:3px;"><div style="background:#e47911;border-radius:3px;height:100%;width:5%;"></div></div><div style="font-size:10px;color:#888;">5%</div></td><td style="padding:10px;color:#e47911;">CHRIS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="text-align:center;font-size:11px;color:#aaa;padding:20px 0;">
+    OnlineSports.com / Game On Sports Inc. &nbsp;·&nbsp; Confidential — Internal Use Only &nbsp;·&nbsp; Sam (OpenClaw AI)
+  </div>
+</div>
+</body>
+</html>
