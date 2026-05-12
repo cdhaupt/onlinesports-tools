@@ -126,6 +126,6 @@ function switchTab(n,btn){document.querySelectorAll('.tab').forEach(function(t){
 function copyBlock(i,btn){navigator.clipboard.writeText(makeBlock(pages[i])).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy HTML';btn.classList.remove('copied');},2000);});}
 function copyEl(id,btn,label){navigator.clipboard.writeText(document.getElementById(id).textContent).then(function(){btn.textContent='Copied!';setTimeout(function(){btn.textContent=label;},2000);});}});
 </script>
-<div id="last-updated" style="text-align:center;font-size:11px;color:#bbb;padding:16px 0 8px;font-family:-apple-system,sans-serif;">Last updated: May 11, 2026 6:04 PM PT</div>
+<div id="last-updated" style="text-align:center;font-size:11px;color:#bbb;padding:16px 0 8px;font-family:-apple-system,sans-serif;">Last updated: May 11, 2026 6:39 PM PT</div>
 </body>
 </html>
